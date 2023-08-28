@@ -1,6 +1,8 @@
 # login_page
 
-A new Flutter project.
+A new Flutter basic project about UI Login page.
+
+![Ui_login_page](https://github.com/Datvan10/UI_Login_page_Fultter/assets/73633074/17c61997-43ac-4084-84c3-8ea2baaadc96)
 
 ## Getting Started
 
