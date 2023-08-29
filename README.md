@@ -5,9 +5,7 @@ Keep evolving login and logout with firebase(email, google, apple,...)
 
 
 
-![iamge_Ui_login_page](https://github.com/Datvan10/UI_Login_page_Fultter/assets/73633074/90b56f17-ac16-40c5-8627-dae336235c6b)
-
-![image_Ui_logout_page](https://github.com/Datvan10/UI_Login_page_Fultter/assets/73633074/b5b39b76-6020-4a74-aa1b-d4a3dc5e6e5a)
+![iamge_Ui_login_page](https://github.com/Datvan10/UI_Login_page_Fultter/assets/73633074/90b56f17-ac16-40c5-8627-dae336235c6b) ![image_Ui_logout_page](https://github.com/Datvan10/UI_Login_page_Fultter/assets/73633074/b5b39b76-6020-4a74-aa1b-d4a3dc5e6e5a)
 
 
 ## Getting Started
