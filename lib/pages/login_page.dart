@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:login_page/compoments/images_title.dart';
 import 'package:login_page/compoments/login_button.dart';
@@ -8,11 +9,15 @@ import 'package:login_page/constants/colors.dart';
 class loginPage extends StatelessWidget {
   loginPage({super.key});
 
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
 //function when User login
-  void loginUser() {}
+  void signInUser() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text, 
+      password: passwordController.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +49,8 @@ class loginPage extends StatelessWidget {
                 height: 25,
               ),
               textField(
-                controller: usernameController,
-                hintText: 'Enter your name',
+                controller: emailController,
+                hintText: 'Enter your email',
                 obscureText: false,
               ),
               const SizedBox(
@@ -74,7 +79,7 @@ class loginPage extends StatelessWidget {
                 height: 20,
               ),
               loginButton(
-                onTap: loginUser,
+                onTap: signInUser,
               ),
               const SizedBox(
                 height: 50,

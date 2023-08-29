@@ -1,22 +1,24 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:login_page/pages/auth_page.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:login_page/pages/home_page.dart';
 import 'package:login_page/pages/login_page.dart';
-// import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
+import 'firebase_options.dart';
 
-void main() async =>
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.web
+  );
   runApp(
       DevicePreview(
         enabled: !kReleaseMode,
         builder: (context) => const MyApp(), // Wrap your app
       ),
     );
-
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      home:  loginPage(),
+      home: const authPage(),
       debugShowCheckedModeBanner: false,
     );
   }
