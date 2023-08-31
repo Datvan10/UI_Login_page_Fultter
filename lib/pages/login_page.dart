@@ -6,17 +6,40 @@ import 'package:login_page/compoments/text_field.dart';
 import 'package:login_page/constants/colors.dart';
 
 // ignore: camel_case_types
-class loginPage extends StatelessWidget {
+class loginPage extends StatefulWidget {
   loginPage({super.key});
 
+  @override
+  State<loginPage> createState() => _loginPageState();
+}
+
+class _loginPageState extends State<loginPage> {
   final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
 //function when User login
   void signInUser() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
+    showDialog(context: context, builder: (context){
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    });
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: emailController.text, 
       password: passwordController.text);
+    } on FirebaseAuthException catch (e) {
+      if(e.code == 'user-not-found'){
+        print('No user found for this email');
+      }
+      else if (e.code == 'wrong-password'){
+        print('Wrong password, please re-enter');
+      }
+    }
+
+    Navigator.pop(context);
   }
 
   @override
